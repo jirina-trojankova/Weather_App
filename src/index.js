@@ -11,7 +11,7 @@ class WheatherApp extends React.Component {
     }
 
     componentDidMount() {
-        fetch('https://randomuser.me/api/?results=5')
+        fetch('https://randomuser.me/api/?results=1')
     //fetch('//http://api.openweathermap.org/data/2.5/forecast?lat=49.9415967&lon=14.3316786&appid=ed62e370682cc9e4144620905eff37e4')
     .then(results => {
         return results.json();
@@ -19,7 +19,7 @@ class WheatherApp extends React.Component {
     let pictures = data.results.map((pic) =>{
         return(
             <div key={pic.results}>
-                <img src={pic.picture.medium} alt=""/>
+                <img src={pic.picture.large} alt=""/>
             </div>
         )
     })
@@ -31,18 +31,21 @@ class WheatherApp extends React.Component {
     render() {
        return(
         <React.Fragment>
-            <div className="row">
-                <Day day="Monday" />
-                <Day day="Tuesday"/>
-                <Day day="Wednesday"/>
-                <Day day="Thursday"/>
-                <Day day="Friday"/>
-                <Day day="Saturday"/>
-                <Day day="Sunday"/>
+            <div className="pic">
+                <div>
+                    {this.state.pictures}
+                </div>
+                <div>Hi! The forecast is:</div>
             </div>
-            <div className="row">
-                {this.state.pictures}
-            </div>
+                <div className="row">
+                    <Day day="Monday" />
+                    <Day day="Tuesday"/>
+                    <Day day="Wednesday"/>
+                    <Day day="Thursday"/>
+                    <Day day="Friday"/>
+                    <Day day="Saturday"/>
+                    <Day day="Sunday"/>
+                </div>
         </React.Fragment>
        );
    }
@@ -51,7 +54,7 @@ class WheatherApp extends React.Component {
 class Day extends React.Component {
     render() {
         return(
-            <div className="day">I'm.. {this.props.day}</div>
+            <div className="day">It's.. {this.props.day}</div>
         );
     }
 }

@@ -16,3 +16,11 @@ body {
     border: black solid 1px;
     background-color: aliceblue;
 }
+
+.pic img {
+    border: black solid 1px;
+}
+
+.pic {
+    margin-bottom: 1em;
+}
