@@ -1,0 +1,16 @@
+body {
+    background-color: antiquewhite;
+    padding: 2em;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    border: black solid 1px;
+}
+
+.day {
+    margin: 1em;
+    padding: 1em;
+    border: black solid 1px;
+}
