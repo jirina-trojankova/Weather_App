@@ -3,6 +3,26 @@ import ReactDOM from 'react-dom'
 import './index.css'
 
 class WheatherApp extends React.Component {
+       
+    render() {
+       return(
+        <React.Fragment>
+            <Moderator />
+            <div className="row">
+                <Day day="Monday" />
+                <Day day="Tuesday"/>
+                <Day day="Wednesday"/>
+                <Day day="Thursday"/>
+                <Day day="Friday"/>
+                <Day day="Saturday"/>
+                <Day day="Sunday"/>
+            </div>
+        </React.Fragment>
+       );
+   }
+}
+
+class Moderator extends React.Component {
     constructor() {
         super();
         this.state = {
@@ -21,34 +41,19 @@ class WheatherApp extends React.Component {
             <div key={pic.results}>
                 <img src={pic.picture.large} alt=""/>
             </div>
-        )
-    })
-    this.setState({pictures: pictures});
-    console.log('state', this.state.pictures);
-})
-}    
+            )
+        })
+        this.setState({pictures: pictures});
+        })
+    } 
 
-    render() {
-       return(
-        <React.Fragment>
-            <div className="pic">
-                <div>
+    render () {
+        return (<div>
                     {this.state.pictures}
-                </div>
                 <div>Hi! The forecast is:</div>
-            </div>
-                <div className="row">
-                    <Day day="Monday" />
-                    <Day day="Tuesday"/>
-                    <Day day="Wednesday"/>
-                    <Day day="Thursday"/>
-                    <Day day="Friday"/>
-                    <Day day="Saturday"/>
-                    <Day day="Sunday"/>
                 </div>
-        </React.Fragment>
-       );
-   }
+        )  
+    }
 }
 
 class Day extends React.Component {
