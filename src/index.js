@@ -7,6 +7,7 @@ class WheatherApp extends React.Component {
        return(
         <React.Fragment>
             <Moderator />
+            <ModeratorsName />
             <div className="row">
                 <Day day="Monday" />
                 <Day day="Tuesday"/>
@@ -48,7 +49,38 @@ class Moderator extends React.Component {
     render () {
         return (<div>
                     {this.state.pictures}
-                <div>Hi! The forecast is:</div>
+                </div>
+        )  
+    }
+}
+
+class ModeratorsName extends React.Component {
+    constructor() {
+        super();
+        this.state = {
+            names: [],
+        }
+    }
+
+    componentDidMount() {
+        fetch('https://randomuser.me/api/?results=1')
+    .then(results => {
+        return results.json();
+    }).then(data => {
+    let names = data.results.map((name) =>{
+        return(
+                <a>
+                    {name.name.first}
+                </a>
+            )
+        })
+        this.setState({names: names});
+        })
+    } 
+
+    render () {
+        return (<div> 
+                Hi, I am {this.state.names}. The forecast is:
                 </div>
         )  
     }
