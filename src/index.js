@@ -37,7 +37,7 @@ class Moderator extends React.Component {
     }).then(data => {
     let pictures = data.results.map((pic) =>{
         return(
-            <div key={pic.results}>
+            <div key={0}>
                 <img src={pic.picture.large} alt=""/>
             </div>
             )
@@ -69,7 +69,7 @@ class ModeratorsName extends React.Component {
     }).then(data => {
     let names = data.results.map((name) =>{
         return(
-                <a>
+                <a key={1}>
                     {name.name.first}
                 </a>
             )

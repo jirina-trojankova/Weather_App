@@ -1,0 +1,27 @@
+class Weather extends React.Component {
+    constructor() {
+        super();
+        this.state = {
+            data: []
+        }
+    }
+
+    componentDidMount() {
+        fetch('//api.openweathermap.org/data/2.5/forecast?lat=49.9415967&lon=14.3316786&appid=ed62e370682cc9e4144620905eff37e4')
+        .then((Response) => Response.json())
+        .then((findresponse) => {
+            console.log(findresponse);
+        })
+    }
+
+    render() {
+        return (
+            <div>
+                Hi, I am weather..
+                {this.state.data.map((dynamicData,i) => 
+                <div></div>)
+                }
+            </div>
+        );
+    }
+}
